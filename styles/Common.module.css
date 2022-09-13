@@ -1,0 +1,53 @@
+.container {
+  position: relative;
+  max-width: 1330px;
+  margin: auto;
+}
+
+.space_top {
+  padding-top: 120px;
+}
+
+.space_margin_top {
+  padding-top: 120px;
+}
+
+.space_relative {
+  position: relative;
+  top: 120px;
+}
+.btn_custom {
+  outline: none;
+  background: #00c076;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 24px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.4s all;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 162px;
+  width: auto;
+  margin: auto;
+}
+
+.btn_custom:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.full_screen_height {
+  min-height: 100vh;
+}
+
+.width_100_percent {
+  width: 100%;
+}
+
+.bg_main {
+  background: url("/images/bg-nearlog.png") no-repeat center center / cover;
+  -webkit-background-size: cover !important;
+  overflow-x: scroll;
+}
