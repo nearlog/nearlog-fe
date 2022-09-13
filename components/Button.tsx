@@ -7,20 +7,22 @@ export const AppButton = styled(Button)`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 12px 16px;
-  gap: 12px;
-  width: 137px;
-  height: 40px;
+  padding: 20px 24px;
   border-radius: 90px;
-
   background-color: ${appColors.activeColorGreen};
   border: none;
   color: ${appColors.defaultColorWhite};
-  &:hover {
+  display: flex;
+  &:hover,
+  &:focus,
+  &:active {
     background-color: ${appColors.activeColorGreen};
     color: ${appColors.defaultColorWhite};
   }
   span {
     font-weight: 600;
+  }
+  .icon {
+    margin-left: 12px;
   }
 `;
