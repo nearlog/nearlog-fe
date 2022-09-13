@@ -1,5 +1,4 @@
-import { Col, Row, Image, Input, Select } from "antd";
-import React from "react";
+import { Col, Image, Input, Row } from "antd";
 import IconsComp from "../../components/BgIcon";
 import { AppButton } from "../../components/Button";
 import {
@@ -11,13 +10,11 @@ import {
   PriceValue,
   SelectComp,
   SubTitletable,
-  TitleAuction,
   TitleTable,
   TopBtnList,
 } from "../../components/style";
 import { appColors } from "../../utils";
 import BtnLead from "./BtnLead";
-import { LineChart } from "./Charts";
 import TradeTables from "./TradeTables";
 
 const TradesView = () => {
