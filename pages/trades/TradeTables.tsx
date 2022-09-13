@@ -1,14 +1,14 @@
-import { Table, Image } from "antd";
+import { Image, Table } from "antd";
 import type { ColumnsType } from "antd/es/table";
-import React from "react";
 import { AppButton } from "../../components/Button";
 import {
-  BtnBgWrap,
   FlexBasic,
   TableWrapper,
   TitleAuction,
+  TopBtnList,
 } from "../../components/style";
 import { appColors } from "../../utils";
+import BtnLead from "./BtnLead";
 
 interface DataType {
   key: number;
@@ -18,24 +18,37 @@ interface DataType {
   price: any;
 }
 
+const mockListCalPut = [
+  {
+    key: 0,
+    label: "Call",
+  },
+  {
+    key: 1,
+    label: "Put",
+  },
+];
+const mockListBuy = [
+  {
+    key: 0,
+    label: "Buy",
+  },
+];
 const TradeTables = () => {
   return (
     !!renderData && (
       <TableWrapper>
-        <div className="top-btn-list">
+        <div className="top-btn-list" style={{ marginBottom: 30 }}>
           <FlexBasic style={{ justifyContent: "space-between", gap: 30 }}>
-            <BtnBgWrap>
-              <div className="content-btn">Buy</div>
-            </BtnBgWrap>
-            <BtnBgWrap>
-              <div className="content-btn">
-                <span>Call</span>
-                <span style={{ marginLeft: 40 }}>Put</span>
-              </div>
-            </BtnBgWrap>
-            <BtnBgWrap>
+            <TopBtnList>
+              <BtnLead list={mockListBuy} />
+            </TopBtnList>
+            <TopBtnList>
+              <BtnLead list={mockListCalPut} />
+            </TopBtnList>
+            <TopBtnList style={{ padding: "14px 20px" }}>
               <div>Expires Sep 16th, 3PM</div>
-            </BtnBgWrap>
+            </TopBtnList>
           </FlexBasic>
         </div>
         <Table
@@ -69,9 +82,9 @@ const renderData: DataType[] = [
     key: 2,
     strike: "$4.00",
     breakEvent: "$4.78",
-    volatility: "134.39%",
+    volatility: "117.59%",
     price: {
-      number: "$0.85",
+      number: "$0.78",
       ticked: false,
     },
   },
@@ -79,9 +92,9 @@ const renderData: DataType[] = [
     key: 3,
     strike: "$5.00",
     breakEvent: "$5.71",
-    volatility: "134.39%",
+    volatility: "115.13%",
     price: {
-      number: "$0.85",
+      number: "$0.71",
       ticked: false,
     },
   },
@@ -89,9 +102,9 @@ const renderData: DataType[] = [
     key: 4,
     strike: "$6.00",
     breakEvent: "$6.65",
-    volatility: "134.39%",
+    volatility: "118.20%",
     price: {
-      number: "$0.85",
+      number: "$0.65",
       ticked: false,
     },
   },
@@ -99,9 +112,19 @@ const renderData: DataType[] = [
     key: 5,
     strike: "$7.00",
     breakEvent: "$7.52",
-    volatility: "134.39%",
+    volatility: "118.87%",
     price: {
-      number: "$0.85",
+      number: "$0.52",
+      ticked: false,
+    },
+  },
+  {
+    key: 6,
+    strike: "$8.00",
+    breakEvent: "$8.52",
+    volatility: "121.63%",
+    price: {
+      number: "$0.38",
       ticked: false,
     },
   },

@@ -33,7 +33,7 @@ const AppHeader = () => {
             </ul>
           </NavBarStyle>
           <div>
-            <AppButton>Connect wallet</AppButton>
+            <AppButton style={{ padding: 22 }}>Connect wallet</AppButton>
           </div>
         </>
       )}

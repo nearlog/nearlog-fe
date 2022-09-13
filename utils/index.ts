@@ -24,4 +24,6 @@ export const appColors = {
   defaultColorWhite: "#FFFFFF",
   defaultBgColor: "rgba(255, 255, 255, 0.05)",
   sosColorRed: "#DE350B",
+  colorGray: "#929292",
+  bgColorInput: "#001612",
 };

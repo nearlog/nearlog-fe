@@ -1,3 +1,4 @@
+import { Select } from "antd";
 import styled from "styled-components";
 import { appColors } from "../utils";
 
@@ -176,9 +177,12 @@ export const TableWrapper = styled.div`
     font-size: 16px;
     text-transform: uppercase;
   }
-  .top-btn-list {
-    padding: 35px 10px;
-  }
+`;
+export const TopBtnList = styled.div`
+  padding: 10px;
+  background: #004133;
+  border-radius: 44px;
+  cursor: pointer;
 `;
 
 export const TitleAuction = styled.h6`
@@ -200,8 +204,39 @@ export const BtnBgWrap = styled.div`
     font-weight: 500;
     font-size: 16px;
     color: #ffffff;
-    /* line-height: 24px;
-    background: #002b21;
-    padding: 10px 24px; */
+  }
+`;
+
+export const BtnItem = styled.div`
+  transition: all 0.3s ease;
+  background-color: transparent;
+  width: 65px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 29px;
+`;
+
+export const BtnLeadList = styled.div`
+  .btn-active {
+    background-color: #002b21;
+  }
+`;
+
+export const SelectComp = styled(Select)`
+  flex: 1;
+
+  .ant-select-selector {
+    background-color: ${appColors.bgColorInput} !important;
+    color: ${appColors.defaultColorWhite} !important;
+    border: none !important;
+    height: 40px !important;
+    border-radius: 20px !important;
+  }
+  span.ant-select-selection-item {
+    line-height: 40px;
   }
 `;

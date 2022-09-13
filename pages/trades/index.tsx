@@ -1,4 +1,4 @@
-import { Col, Row, Image } from "antd";
+import { Col, Row, Image, Input, Select } from "antd";
 import React from "react";
 import IconsComp from "../../components/BgIcon";
 import { AppButton } from "../../components/Button";
@@ -9,10 +9,14 @@ import {
   Line,
   MarginBottom,
   PriceValue,
+  SelectComp,
   SubTitletable,
+  TitleAuction,
   TitleTable,
+  TopBtnList,
 } from "../../components/style";
 import { appColors } from "../../utils";
+import BtnLead from "./BtnLead";
 import { LineChart } from "./Charts";
 import TradeTables from "./TradeTables";
 
@@ -41,7 +45,26 @@ const TradesView = () => {
                 marginBottom: 20,
               }}
             >
-              $5.3
+              <MarginBottom>
+                <FlexBasic style={{ justifyContent: "space-between" }}>
+                  <div style={{ flex: 1 }}>
+                    <TitleTable>$5.30</TitleTable>
+                    <div style={{ color: appColors.sosColorRed }}>-4.84%</div>
+                  </div>
+                  <TopBtnList style={{ flex: 1 }}>
+                    <BtnLead />
+                  </TopBtnList>
+                </FlexBasic>
+              </MarginBottom>
+              <div style={{ position: "relative", top: 30 }}>
+                <Image
+                  src="/chartline-1.png"
+                  alt="chartline"
+                  width={"100%"}
+                  height={"100%"}
+                  preview={{ visible: false, mask: false }}
+                />
+              </div>
             </BgMutual>
             <div>
               <BgMutual
@@ -61,79 +84,112 @@ const TradesView = () => {
                 height: "100%",
               }}
             >
-              <TitleTable>Buy NEAR $5.30 Call</TitleTable>
               <MarginBottom>
-                <FlexBasic>
-                  <SubTitletable>Size</SubTitletable>
-                  <div>100 max</div>
-                </FlexBasic>
+                <TitleTable>Buy NEAR $5.30 Call</TitleTable>
               </MarginBottom>
-              <MarginBottom>
-                <FlexBasic>
-                  <SubTitletable>Buy with</SubTitletable>
-                  <div>100 max</div>
-                </FlexBasic>
-              </MarginBottom>
+              <div>
+                <MarginBottom>
+                  <FlexBasic>
+                    <SubTitletable style={{ flex: 1 }}>Size</SubTitletable>
+                    <div style={{ position: "relative" }}>
+                      <Input
+                        value="100.00"
+                        style={{
+                          background: appColors.bgColorInput,
+                          color: appColors.colorGray,
+                          border: "none",
+                          height: 40,
+                          borderRadius: 20,
+                          flex: 1,
+                        }}
+                      />
+                      <span
+                        style={{
+                          color: appColors.colorGray,
+                          position: "absolute",
+                          right: 7,
+                          height: 40,
+                          lineHeight: 40,
+                          fontSize: 12,
+                        }}
+                      >
+                        MAX
+                      </span>
+                    </div>
+                  </FlexBasic>
+                </MarginBottom>
+                <MarginBottom>
+                  <FlexBasic>
+                    <SubTitletable style={{ flex: 1 }}>Buy with</SubTitletable>
+                    <SelectComp value=" USN" />
+                  </FlexBasic>
+                </MarginBottom>
+              </div>
               <Line style={{ marginBottom: 20 }} />
-              <MarginBottom>
-                <FlexBasic>
-                  <SubTitletable>Price</SubTitletable>
-                  <PriceValue>$85</PriceValue>
-                </FlexBasic>
-              </MarginBottom>
-              <MarginBottom>
-                <FlexBasic>
-                  <SubTitletable>Max cost</SubTitletable>
-                  <PriceValue>$85</PriceValue>
-                </FlexBasic>
-              </MarginBottom>
-              <MarginBottom>
-                <FlexBasic>
-                  <SubTitletable>Balance</SubTitletable>
-                  <PriceValue>$100</PriceValue>
-                </FlexBasic>
-              </MarginBottom>
-              <MarginBottom>
-                <AppButton style={{ width: "100%" }}> Connect wallet</AppButton>
-              </MarginBottom>
+              <div>
+                <MarginBottom>
+                  <FlexBasic>
+                    <SubTitletable>Price</SubTitletable>
+                    <PriceValue>$85</PriceValue>
+                  </FlexBasic>
+                </MarginBottom>
+                <MarginBottom>
+                  <FlexBasic>
+                    <SubTitletable>Max cost</SubTitletable>
+                    <PriceValue>$85</PriceValue>
+                  </FlexBasic>
+                </MarginBottom>
+                <MarginBottom>
+                  <FlexBasic>
+                    <SubTitletable>Balance</SubTitletable>
+                    <PriceValue>$100</PriceValue>
+                  </FlexBasic>
+                </MarginBottom>
+                <MarginBottom>
+                  <AppButton style={{ width: "100%" }}>
+                    {" "}
+                    Connect wallet
+                  </AppButton>
+                </MarginBottom>
+              </div>
               <Line style={{ marginBottom: 20 }} />
-
-              <MarginBottom>
-                <FlexBasic>
-                  <SubTitletable> Expected profit and loss</SubTitletable>
-                  <SubTitletable style={{ color: appColors.sosColorRed }}>
-                    -85.00
-                  </SubTitletable>
-                </FlexBasic>
-              </MarginBottom>
-              <MarginBottom>
-                <Image
-                  src="/chartline.png"
-                  alt="chartline"
-                  width={"100%"}
-                  height={"100%"}
-                  preview={{ visible: false, mask: false }}
-                />
-                {/* <LineChart /> */}
-              </MarginBottom>
-              <MarginBottom style={{ marginBottom: 5 }}>
-                <FlexBasic>
-                  <SubTitletable>Max profit</SubTitletable>
-                  <SubTitletable>Infinite</SubTitletable>
-                </FlexBasic>
-              </MarginBottom>
-              <MarginBottom style={{ marginBottom: 5 }}>
-                <FlexBasic>
-                  <SubTitletable>Break even</SubTitletable>
-                  <SubTitletable>$3.85</SubTitletable>
-                </FlexBasic>
-              </MarginBottom>
-              <MarginBottom style={{ marginBottom: 5 }}>
-                <FlexBasic>
-                  <SubTitletable>Max loss</SubTitletable>
-                  <SubTitletable>$-85.00</SubTitletable>
-                </FlexBasic>
-              </MarginBottom>
+              <div>
+                <MarginBottom>
+                  <FlexBasic>
+                    <SubTitletable> Expected profit and loss</SubTitletable>
+                    <SubTitletable style={{ color: appColors.sosColorRed }}>
+                      -85.00
+                    </SubTitletable>
+                  </FlexBasic>
+                </MarginBottom>
+                <MarginBottom>
+                  <Image
+                    src="/chartline.png"
+                    alt="chartline"
+                    width={"100%"}
+                    height={"100%"}
+                    preview={{ visible: false, mask: false }}
+                  />
+                </MarginBottom>
+                <MarginBottom style={{ marginBottom: 5 }}>
+                  <FlexBasic>
+                    <SubTitletable>Max profit</SubTitletable>
+                    <SubTitletable>Infinite</SubTitletable>
+                  </FlexBasic>
+                </MarginBottom>
+                <MarginBottom style={{ marginBottom: 5 }}>
+                  <FlexBasic>
+                    <SubTitletable>Break even</SubTitletable>
+                    <SubTitletable>$3.85</SubTitletable>
+                  </FlexBasic>
+                </MarginBottom>
+                <MarginBottom style={{ marginBottom: 5 }}>
+                  <FlexBasic>
+                    <SubTitletable>Max loss</SubTitletable>
+                    <SubTitletable>$-85.00</SubTitletable>
+                  </FlexBasic>
+                </MarginBottom>
+              </div>
             </BgMutual>
           </Col>
         </Row>
