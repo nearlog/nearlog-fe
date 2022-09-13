@@ -15,6 +15,7 @@ import {
 } from "../../components/style";
 import { appColors } from "../../utils";
 import BtnLead from "./BtnLead";
+import InputComp from "./InputComp";
 import TradeTables from "./TradeTables";
 
 const TradesView = () => {
@@ -88,31 +89,7 @@ const TradesView = () => {
                 <MarginBottom>
                   <FlexBasic>
                     <SubTitletable style={{ flex: 1 }}>Size</SubTitletable>
-                    <div style={{ position: "relative" }}>
-                      <Input
-                        value="100.00"
-                        style={{
-                          background: appColors.bgColorInput,
-                          color: appColors.colorGray,
-                          border: "none",
-                          height: 40,
-                          borderRadius: 20,
-                          flex: 1,
-                        }}
-                      />
-                      <span
-                        style={{
-                          color: appColors.colorGray,
-                          position: "absolute",
-                          right: 7,
-                          height: 40,
-                          lineHeight: 40,
-                          fontSize: 12,
-                        }}
-                      >
-                        MAX
-                      </span>
-                    </div>
+                    <InputComp />
                   </FlexBasic>
                 </MarginBottom>
                 <MarginBottom>
