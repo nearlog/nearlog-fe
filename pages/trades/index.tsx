@@ -113,13 +113,13 @@ const TradesView = () => {
                     <PriceValue>$85</PriceValue>
                   </FlexBasic>
                 </MarginBottom>
-                <MarginBottom>
+                <MarginBottom style={{ marginBottom: 30 }}>
                   <FlexBasic>
                     <SubTitletable>Balance</SubTitletable>
                     <PriceValue>$100</PriceValue>
                   </FlexBasic>
                 </MarginBottom>
-                <MarginBottom>
+                <MarginBottom style={{ marginBottom: 30 }}>
                   <AppButton style={{ width: "100%" }}>
                     {" "}
                     Connect wallet
@@ -128,7 +128,7 @@ const TradesView = () => {
               </div>
               <Line style={{ marginBottom: 20 }} />
               <div>
-                <MarginBottom>
+                <MarginBottom style={{ marginBottom: 30 }}>
                   <FlexBasic>
                     <SubTitletable> Expected profit and loss</SubTitletable>
                     <SubTitletable style={{ color: appColors.sosColorRed }}>
@@ -136,28 +136,28 @@ const TradesView = () => {
                     </SubTitletable>
                   </FlexBasic>
                 </MarginBottom>
-                <MarginBottom>
+                <MarginBottom style={{ marginBottom: 40 }}>
                   <Image
                     src="/chartline.png"
                     alt="chartline"
                     width={"100%"}
-                    height={"100%"}
+                    height={"120px"}
                     preview={{ visible: false, mask: false }}
                   />
                 </MarginBottom>
-                <MarginBottom style={{ marginBottom: 5 }}>
+                <MarginBottom style={{ marginBottom: 10 }}>
                   <FlexBasic>
                     <SubTitletable>Max profit</SubTitletable>
                     <SubTitletable>Infinite</SubTitletable>
                   </FlexBasic>
                 </MarginBottom>
-                <MarginBottom style={{ marginBottom: 5 }}>
+                <MarginBottom style={{ marginBottom: 10 }}>
                   <FlexBasic>
                     <SubTitletable>Break even</SubTitletable>
                     <SubTitletable>$3.85</SubTitletable>
                   </FlexBasic>
                 </MarginBottom>
-                <MarginBottom style={{ marginBottom: 5 }}>
+                <MarginBottom style={{ marginBottom: 10 }}>
                   <FlexBasic>
                     <SubTitletable>Max loss</SubTitletable>
                     <SubTitletable>$-85.00</SubTitletable>
