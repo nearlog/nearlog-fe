@@ -56,6 +56,10 @@
   margin: 0 auto 0 0;
 }
 
+.position button > span {
+  margin-left: 5px !important;
+}
+
 .info_values {
   width: 100%;
   display: flex;
