@@ -28,5 +28,5 @@ export const LineChart = () => {
     },
   };
 
-  return <Line {...config} />;
+  return <></>;
 };
