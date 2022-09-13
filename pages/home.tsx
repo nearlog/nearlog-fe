@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 import home_styles from "../styles/Home.module.css";
 import common_styles from "../styles/Common.module.css";
+import Link from "next/link";
 
 const HomePage: NextPage = () => {
   return (
@@ -22,11 +23,13 @@ const HomePage: NextPage = () => {
             alt="Nearlend Dao build on Near"
           />
         </p>
-        <button
-          className={`${common_styles.btn_custom} ${home_styles.btn_launch_app}`}
-        >
-          Launch App
-        </button>
+        <Link href="/portfolio">
+          <button
+            className={`${common_styles.btn_custom} ${home_styles.btn_launch_app}`}
+          >
+            Launch App
+          </button>
+        </Link>
 
         <p className={`${home_styles.main_img_big}`}>
           <Image
