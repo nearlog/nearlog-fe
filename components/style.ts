@@ -75,8 +75,8 @@ export const WrappMenuBar = styled.div`
       align-items: center;
       span {
         font-size: 20px;
-        font-weight: 600;
         white-space: nowrap;
+        font-weight: bold;
       }
     }
   }

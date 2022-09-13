@@ -47,7 +47,7 @@
 }
 
 .bg_main {
-  background: url("/images/bg-nearlog.png") no-repeat center center / cover;
-  -webkit-background-size: cover !important;
+  /* background: url("/images/bg-nearlog.png") no-repeat center center / cover;
+  -webkit-background-size: cover !important; */
   overflow-x: scroll;
 }
