@@ -9,11 +9,9 @@ const FooterLinks = () => {
     <Wrapper>
       <SocialWrapper>
         {IconList.map((item, idx) => (
-          <Link href={item.to} target="_blank" key={idx}>
-            <a target="_blank">
-              <Image src={item.src} alt="social" width={25} height={25} />
-            </a>
-          </Link>
+          <a href={item.to} target="_blank" key={idx} rel="noreferrer">
+            <Image src={item.src} alt="social" width={25} height={25} />
+          </a>
         ))}
       </SocialWrapper>
     </Wrapper>

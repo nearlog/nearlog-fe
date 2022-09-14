@@ -1,4 +1,4 @@
-import { createContext, ReactNode } from "react";
+import { createContext, ReactNode, useState } from "react";
 
 type Props = {
   children: ReactNode;
@@ -7,9 +7,10 @@ type Props = {
 export const NearLogContextApi = createContext<any>({});
 
 const NearLogContext = ({ children }: Props): JSX.Element => {
+  const [wallet, setWallet] = useState();
   return (
-    <NearLogContextApi.Provider value={{}}>
-      {children}
+    <NearLogContextApi.Provider value={{ wallet }}>
+      {children && children}
     </NearLogContextApi.Provider>
   );
 };

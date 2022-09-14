@@ -7,8 +7,8 @@ import { MAIN_CONTRACT_ID } from "../utils/connect/contract";
 
 const Portfolio: NextPage = () => {
   const login = () => {
-    const wallet = localStorage.getItem("wallet") || "";
-    wallet?.requestSignIn(MAIN_CONTRACT_ID, "Rust Counter Example");
+    // const wallet = localStorage.getItem("wallet") || "";
+    // wallet?.requestSignIn(MAIN_CONTRACT_ID, "Rust Counter Example");
   };
   useEffect(() => {
     console.log("local", localStorage.getItem("wallet"));
