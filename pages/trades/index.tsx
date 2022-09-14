@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { NearLogContextApi } from "../../AppContext";
 import IconsComp from "../../components/BgIcon";
 import { AppButton } from "../../components/Button";
+import ConnectWalletButton from "../../components/ConnectWalletButton";
 import {
   AppContainer,
   BgMutual,
@@ -137,13 +138,10 @@ const TradesView = () => {
                     <PriceValue>$205.00 USN</PriceValue>
                   </FlexBasic>
                 </MarginBottom>
-                {!account?.isLoggedIn ? (
-                  <MarginBottom style={{ marginBottom: 30 }}>
-                    <AppButton onClick={signIn} style={{ width: "100%" }}>
-                      Connect wallet
-                    </AppButton>
-                  </MarginBottom>
-                ) : null}
+                <ConnectWalletButton
+                  style={{ width: "100%", marginBottom: 30 }}
+                  isHide
+                />
               </div>
               <Line style={{ marginBottom: 20 }} />
               <div>

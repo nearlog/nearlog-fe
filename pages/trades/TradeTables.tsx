@@ -182,7 +182,7 @@ const mockColumn = (
       key: "assetAll",
       width: 75,
       render: (item: any) => {
-        const urlIcon = item?.price?.ticked ? "/checked.svg" : "/plus.svg";
+        const urlIcon = activeId === item?.key ? "/checked.svg" : "/plus.svg";
         return (
           <div
             onClick={() => {

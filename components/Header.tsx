@@ -1,27 +1,25 @@
-import React, { useCallback, useContext, useState } from "react";
+import { Drawer, Image } from "antd";
 import Link from "next/link";
-import { appColors, navLinks } from "../utils";
-import { NavBarStyle, WrappMenuBar } from "./style";
-import AppLogo from "./Logo";
 import { useRouter } from "next/router";
-import { AppButton } from "./Button";
-import FooterLinks from "./Footer";
-// import { useWindowDimensions } from "../utils/useWindow";
-import { Image, Drawer } from "antd";
+import { useCallback, useState } from "react";
 import styled from "styled-components";
-import { NearLogContextApi } from "../AppContext";
+import { appColors, navLinks } from "../utils";
+import { useWindowDimensions } from "../utils/useWindow";
+import ConnectWalletButton from "./ConnectWalletButton";
+import FooterLinks from "./Footer";
+import AppLogo from "./Logo";
+import { NavBarStyle, WrappMenuBar } from "./style";
 
 const responsiveMenu = 768;
 
 const AppHeader = () => {
   const { pathname } = useRouter();
-  const { signOut, signIn, account } = useContext(NearLogContextApi);
 
-  // const { width } = useWindowDimensions();
-  const width = 996;
+  const getSize = useWindowDimensions();
+
   const [open, setOpen] = useState(false);
 
-  const isAppendMobileMenu = width <= responsiveMenu;
+  const isAppendMobileMenu = getSize?.width <= responsiveMenu || false;
   const isHomePage = pathname === "/";
 
   const drawMobileMenu = useCallback(() => {
@@ -50,6 +48,41 @@ const AppHeader = () => {
               />
             ) : null}
           </div>
+          <DrawOverwrite
+            title={<AppLogo />}
+            placement="right"
+            onClose={drawMobileMenu}
+            open={open}
+            closeIcon={
+              <Image
+                src={"/close.svg"}
+                alt="mobileMenu"
+                width={15}
+                height={15}
+                preview={{ visible: false, mask: false }}
+              />
+            }
+          >
+            <AlignMenuMobile>
+              {navLinks.map((link, index) => {
+                return (
+                  <Link href={link.path} key={index}>
+                    <li
+                      onClick={drawMobileMenu}
+                      className={pathname === link.path ? "active-menu" : ""}
+                      key={index}
+                    >
+                      {link.name}
+                    </li>
+                  </Link>
+                );
+              })}
+              <AlignFooterMenuMobile>
+                <FooterLinks />
+              </AlignFooterMenuMobile>
+            </AlignMenuMobile>
+            <ConnectWalletButton style={{ width: "100%", marginTop: 30 }} />
+          </DrawOverwrite>
         </>
       ) : (
         <>
@@ -77,51 +110,12 @@ const AppHeader = () => {
                 </ul>
               </NavBarStyle>
               <div>
-                <AppButton
-                  onClick={account?.isLoggedIn ? signOut : signIn}
-                  style={{ padding: 22 }}
-                >
-                  {account?.isLoggedIn ? account.accountId : "Connect wallet"}
-                </AppButton>
+                <ConnectWalletButton />
               </div>
             </>
           )}
         </>
       )}
-      <DrawOverwrite
-        title={<AppLogo />}
-        placement="right"
-        onClose={drawMobileMenu}
-        open={open}
-        closeIcon={
-          <Image
-            src={"/close.svg"}
-            alt="mobileMenu"
-            width={15}
-            height={15}
-            preview={{ visible: false, mask: false }}
-          />
-        }
-      >
-        <AlignMenuMobile>
-          {navLinks.map((link, index) => {
-            return (
-              <Link href={link.path} key={index}>
-                <li
-                  onClick={drawMobileMenu}
-                  className={pathname === link.path ? "active-menu" : ""}
-                  key={index}
-                >
-                  {link.name}
-                </li>
-              </Link>
-            );
-          })}
-          <AlignFooterMenuMobile>
-            <FooterLinks />
-          </AlignFooterMenuMobile>
-        </AlignMenuMobile>
-      </DrawOverwrite>
     </WrappMenuBar>
   );
 };
