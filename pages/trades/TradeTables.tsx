@@ -1,5 +1,7 @@
 import { Image, Table } from "antd";
-import type { ColumnsType } from "antd/es/table";
+import { useState } from "react";
+import styled from "styled-components";
+// import type { ColumnsType } from "antd/es/table";
 import { AppButton } from "../../components/Button";
 import {
   FlexBasic,
@@ -16,6 +18,7 @@ interface DataType {
   breakEvent: string;
   volatility: string;
   price: any;
+  onChangeRow?: (item: any) => void;
 }
 
 const mockListCalPut = [
@@ -34,9 +37,25 @@ const mockListBuy = [
     label: "Buy",
   },
 ];
-const TradeTables = () => {
+
+const TradeTables = (props: any) => {
+  const { onChangeRow } = props;
+
+  const [activeId, setActiveId] = useState(4);
+
+  const renderAsset = renderData.map((item: any, idx: number) => {
+    return {
+      ...item,
+      assetAll: item,
+    };
+  });
+
+  const _onChangeActive = (id: number) => {
+    setActiveId(id);
+  };
+
   return (
-    !!renderData && (
+    !!renderAsset && (
       <TableWrapper>
         <div className="top-btn-list" style={{ marginBottom: 30 }}>
           <FlexBasic
@@ -59,8 +78,8 @@ const TradeTables = () => {
         </div>
         <Table
           pagination={false}
-          dataSource={renderData}
-          columns={mockColumn}
+          dataSource={renderAsset}
+          columns={mockColumn(onChangeRow, activeId, _onChangeActive)}
           scroll={{ x: 350 }}
           rowKey={(row) => {
             return row?.key;
@@ -136,56 +155,81 @@ const renderData: DataType[] = [
   },
 ];
 
-const mockColumn: ColumnsType<DataType> = [
-  {
-    title: <TitleAuction>Strike</TitleAuction>,
-    dataIndex: "strike",
-    key: "strike",
-  },
-  {
-    title: <TitleAuction>Break Even</TitleAuction>,
-    dataIndex: "breakEvent",
-    key: "breakEvent",
-  },
-  {
-    title: <TitleAuction>Volatility</TitleAuction>,
-    dataIndex: "volatility",
-    key: "volatility",
-  },
-  {
-    title: <TitleAuction>Price</TitleAuction>,
-    dataIndex: "price",
-    key: "price",
-    width: 75,
-    render: (item: any) => {
-      const urlIcon = item?.ticked ? "/checked.svg" : "/plus.svg";
-      return (
-        <div>
-          <AppButton
-            style={
-              item?.ticked
-                ? { backgroundColor: appColors.activeColorGreen }
-                : { ...stylePlus }
-            }
-          >
-            {item?.number}
-            <span className="icon">
-              <Image
-                src={urlIcon}
-                alt="icon"
-                width={10}
-                height={10}
-                preview={{ visible: false, mask: false }}
-              />
-            </span>
-          </AppButton>
-        </div>
-      );
+const mockColumn = (
+  onChangeRow: any,
+  activeId: number,
+  _onChangeActive: any
+) => {
+  return [
+    {
+      title: <TitleAuction>Strike</TitleAuction>,
+      dataIndex: "strike",
+      key: "strike",
     },
-  },
-];
+    {
+      title: <TitleAuction>Break Even</TitleAuction>,
+      dataIndex: "breakEvent",
+      key: "breakEvent",
+    },
+    {
+      title: <TitleAuction>Volatility</TitleAuction>,
+      dataIndex: "volatility",
+      key: "volatility",
+    },
+    {
+      title: <TitleAuction>Price</TitleAuction>,
+      dataIndex: "assetAll",
+      key: "assetAll",
+      width: 75,
+      render: (item: any) => {
+        const urlIcon = item?.price?.ticked ? "/checked.svg" : "/plus.svg";
+        return (
+          <div
+            onClick={() => {
+              onChangeRow({ ...item?.price, ticked: true }),
+                _onChangeActive(item?.key);
+            }}
+            className={`${activeId === item?.key ? "active-btn" : ""}`}
+          >
+            <OverWriteBtn
+              style={
+                activeId === item?.key
+                  ? {
+                      ...checkBg,
+                    }
+                  : { ...stylePlus }
+              }
+            >
+              {item?.price?.number}
+              <span className="icon">
+                <Image
+                  src={urlIcon}
+                  alt="icon"
+                  width={10}
+                  height={10}
+                  preview={{ visible: false, mask: false }}
+                />
+              </span>
+            </OverWriteBtn>
+          </div>
+        );
+      },
+    },
+  ];
+};
+const checkBg = {
+  backgroundColor: appColors.activeColorGreen,
+  border: `1px solid ${appColors.activeColorGreen}`,
+};
 
 const stylePlus = {
   backgroundColor: "transparent",
   border: `1px solid ${appColors.activeColorGreen}`,
 };
+
+const OverWriteBtn = styled(AppButton)`
+  &:hover {
+    background-color: ${appColors.activeColorGreen} !important;
+    /* border: 1px solid ${appColors.activeColorGreen}; */
+  }
+`;

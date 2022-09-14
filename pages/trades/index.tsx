@@ -1,5 +1,5 @@
 import { Col, Image, Row } from "antd";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NearLogContextApi } from "../../AppContext";
 import IconsComp from "../../components/BgIcon";
 import { AppButton } from "../../components/Button";
@@ -22,6 +22,17 @@ import TradeTables from "./TradeTables";
 
 const TradesView = () => {
   const { account, signIn } = useContext(NearLogContextApi);
+  const [buyInfos, setBuyInfos] = useState({ number: "$0.65", ticked: false });
+
+  const sliceCurrency = {
+    ...buyInfos,
+    number: Number(buyInfos?.number?.replace("$", "")),
+  };
+
+  const handleGetRowInfo = (infos: any) => {
+    setBuyInfos(infos);
+  };
+
   return (
     <div
       style={{
@@ -74,7 +85,7 @@ const TradesView = () => {
                   height: "100%",
                 }}
               >
-                <TradeTables />
+                <TradeTables onChangeRow={handleGetRowInfo} />
               </BgMutual>
             </div>
           </Col>
@@ -104,7 +115,9 @@ const TradesView = () => {
                 <MarginBottom>
                   <FlexBasic>
                     <SubTitletable>Price</SubTitletable>
-                    <PriceValue>$65</PriceValue>
+                    <PriceValue>{`$${
+                      Number(sliceCurrency?.number) * 100
+                    }.00`}</PriceValue>
                   </FlexBasic>
                 </MarginBottom>
               </div>
@@ -113,7 +126,9 @@ const TradesView = () => {
                 <MarginBottom>
                   <FlexBasic>
                     <SubTitletable>Max cost</SubTitletable>
-                    <PriceValue>$65</PriceValue>
+                    <PriceValue>{`$${
+                      Number(sliceCurrency?.number) * 100
+                    }.00`}</PriceValue>
                   </FlexBasic>
                 </MarginBottom>
                 <MarginBottom style={{ marginBottom: 30 }}>
@@ -124,11 +139,6 @@ const TradesView = () => {
                 </MarginBottom>
                 {!account?.isLoggedIn ? (
                   <MarginBottom style={{ marginBottom: 30 }}>
-                    {/* <AppButton style={{ width: "100%" }}>
-                    {" "}
-                    Connect wallet
-                  </AppButton> */}
-
                     <AppButton onClick={signIn} style={{ width: "100%" }}>
                       Connect wallet
                     </AppButton>
@@ -141,7 +151,8 @@ const TradesView = () => {
                   <FlexBasic>
                     <SubTitletable> Expected profit and loss</SubTitletable>
                     <SubTitletable style={{ color: appColors.sosColorRed }}>
-                      -65.00
+                      {/* -65.00 */}
+                      {`-${sliceCurrency?.number}`}
                     </SubTitletable>
                   </FlexBasic>
                 </MarginBottom>
@@ -169,7 +180,7 @@ const TradesView = () => {
                 <MarginBottom style={{ marginBottom: 10 }}>
                   <FlexBasic>
                     <SubTitletable>Max loss</SubTitletable>
-                    <SubTitletable>$-65.00</SubTitletable>
+                    <SubTitletable>{`$-${sliceCurrency?.number}.00`}</SubTitletable>
                   </FlexBasic>
                 </MarginBottom>
               </div>
