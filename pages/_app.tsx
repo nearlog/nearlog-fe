@@ -6,6 +6,7 @@ import AppHeader from "../components/Header";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import FooterHome from "../components/FooterHome";
+import NearLogContext from "../AppContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { pathname } = useRouter();
@@ -22,13 +23,15 @@ function MyApp({ Component, pageProps }: AppProps) {
           crossOrigin=""
         />
       </Head>
-      <AppStyleWrapper>
-        <AppHeader />
-        <FlexOneUI>
-          <Component {...pageProps} />
-        </FlexOneUI>
-        {pathname !== "/" ? <FooterLinks /> : <FooterHome />}
-      </AppStyleWrapper>
+      <NearLogContext>
+        <AppStyleWrapper>
+          <AppHeader />
+          <FlexOneUI>
+            <Component {...pageProps} />
+          </FlexOneUI>
+          {pathname !== "/" ? <FooterLinks /> : <FooterHome />}
+        </AppStyleWrapper>
+      </NearLogContext>
     </>
   );
 }

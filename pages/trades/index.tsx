@@ -1,4 +1,4 @@
-import { Col, Image, Input, Row } from "antd";
+import { Col, Image, Row } from "antd";
 import IconsComp from "../../components/BgIcon";
 import { AppButton } from "../../components/Button";
 import {
@@ -15,6 +15,7 @@ import {
 } from "../../components/style";
 import { appColors } from "../../utils";
 import BtnLead from "./BtnLead";
+import InputComp from "./InputComp";
 import TradeTables from "./TradeTables";
 
 const TradesView = () => {
@@ -27,8 +28,8 @@ const TradesView = () => {
       }}
     >
       <AppContainer style={{ margin: "75px 0" }}>
-        <Row gutter={16}>
-          <Col span={14}>
+        <Row gutter={[16, { xs: 8, sm: 16, md: 24, lg: 24 }]}>
+          <Col xs={24} sm={24} md={24} lg={14} xl={14} xxl={14}>
             <div style={{ marginBottom: 20 }}>
               <span style={{ display: "flex", gap: 10, alignItems: "center" }}>
                 <IconsComp />{" "}
@@ -74,7 +75,7 @@ const TradesView = () => {
               </BgMutual>
             </div>
           </Col>
-          <Col span={10}>
+          <Col xs={24} sm={24} md={24} lg={10} xl={10} xxl={10}>
             <BgMutual
               style={{
                 width: "100%",
@@ -88,31 +89,7 @@ const TradesView = () => {
                 <MarginBottom>
                   <FlexBasic>
                     <SubTitletable style={{ flex: 1 }}>Size</SubTitletable>
-                    <div style={{ position: "relative" }}>
-                      <Input
-                        value="100.00"
-                        style={{
-                          background: appColors.bgColorInput,
-                          color: appColors.colorGray,
-                          border: "none",
-                          height: 40,
-                          borderRadius: 20,
-                          flex: 1,
-                        }}
-                      />
-                      <span
-                        style={{
-                          color: appColors.colorGray,
-                          position: "absolute",
-                          right: 7,
-                          height: 40,
-                          lineHeight: 40,
-                          fontSize: 12,
-                        }}
-                      >
-                        MAX
-                      </span>
-                    </div>
+                    <InputComp />
                   </FlexBasic>
                 </MarginBottom>
                 <MarginBottom>
@@ -136,13 +113,13 @@ const TradesView = () => {
                     <PriceValue>$85</PriceValue>
                   </FlexBasic>
                 </MarginBottom>
-                <MarginBottom>
+                <MarginBottom style={{ marginBottom: 30 }}>
                   <FlexBasic>
                     <SubTitletable>Balance</SubTitletable>
                     <PriceValue>$100</PriceValue>
                   </FlexBasic>
                 </MarginBottom>
-                <MarginBottom>
+                <MarginBottom style={{ marginBottom: 30 }}>
                   <AppButton style={{ width: "100%" }}>
                     {" "}
                     Connect wallet
@@ -151,7 +128,7 @@ const TradesView = () => {
               </div>
               <Line style={{ marginBottom: 20 }} />
               <div>
-                <MarginBottom>
+                <MarginBottom style={{ marginBottom: 30 }}>
                   <FlexBasic>
                     <SubTitletable> Expected profit and loss</SubTitletable>
                     <SubTitletable style={{ color: appColors.sosColorRed }}>
@@ -159,28 +136,28 @@ const TradesView = () => {
                     </SubTitletable>
                   </FlexBasic>
                 </MarginBottom>
-                <MarginBottom>
+                <MarginBottom style={{ marginBottom: 40 }}>
                   <Image
                     src="/chartline.png"
                     alt="chartline"
                     width={"100%"}
-                    height={"100%"}
+                    height={"120px"}
                     preview={{ visible: false, mask: false }}
                   />
                 </MarginBottom>
-                <MarginBottom style={{ marginBottom: 5 }}>
+                <MarginBottom style={{ marginBottom: 10 }}>
                   <FlexBasic>
                     <SubTitletable>Max profit</SubTitletable>
                     <SubTitletable>Infinite</SubTitletable>
                   </FlexBasic>
                 </MarginBottom>
-                <MarginBottom style={{ marginBottom: 5 }}>
+                <MarginBottom style={{ marginBottom: 10 }}>
                   <FlexBasic>
                     <SubTitletable>Break even</SubTitletable>
                     <SubTitletable>$3.85</SubTitletable>
                   </FlexBasic>
                 </MarginBottom>
-                <MarginBottom style={{ marginBottom: 5 }}>
+                <MarginBottom style={{ marginBottom: 10 }}>
                   <FlexBasic>
                     <SubTitletable>Max loss</SubTitletable>
                     <SubTitletable>$-85.00</SubTitletable>

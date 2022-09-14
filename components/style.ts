@@ -237,6 +237,6 @@ export const SelectComp = styled(Select)`
     border-radius: 20px !important;
   }
   span.ant-select-selection-item {
-    line-height: 40px;
+    line-height: 40px !important;
   }
 `;
