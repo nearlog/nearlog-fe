@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import Link from "next/link";
 import { appColors, navLinks } from "../utils";
 import { NavBarStyle, WrappMenuBar } from "./style";
@@ -6,25 +6,31 @@ import AppLogo from "./Logo";
 import { useRouter } from "next/router";
 import { AppButton } from "./Button";
 import FooterLinks from "./Footer";
-import { useWindowDimensions } from "../utils/useWindow";
+// import { useWindowDimensions } from "../utils/useWindow";
 import { Image, Drawer } from "antd";
 import styled from "styled-components";
+import { NearLogContextApi } from "../AppContext";
 
 const responsiveMenu = 768;
 
 const AppHeader = () => {
   const { pathname } = useRouter();
-  const { width } = useWindowDimensions();
+  const { signOut, signIn, account } = useContext(NearLogContextApi);
+
+  // const { width } = useWindowDimensions();
+  const width = 996;
   const [open, setOpen] = useState(false);
 
-  const isAppendMobileMenu = width <= responsiveMenu;
+  const isAppendMobileMenu = width >= responsiveMenu;
   const isHomePage = pathname === "/";
 
   const drawMobileMenu = useCallback(() => {
-    if (open) {
-      setOpen(false);
-    } else {
-      setOpen(true);
+    if (typeof window !== "undefined") {
+      if (open) {
+        setOpen(false);
+      } else {
+        setOpen(true);
+      }
     }
   }, [open]);
 
@@ -71,7 +77,12 @@ const AppHeader = () => {
                 </ul>
               </NavBarStyle>
               <div>
-                <AppButton style={{ padding: 22 }}>Connect wallet</AppButton>
+                <AppButton
+                  onClick={account?.isLoggedIn ? signOut : signIn}
+                  style={{ padding: 22 }}
+                >
+                  {account?.isLoggedIn ? account.accountId : "Connect wallet"}
+                </AppButton>
               </div>
             </>
           )}
