@@ -101,15 +101,15 @@ const TradesView = () => {
                     <SelectComp value=" USN" />
                   </FlexBasic>
                 </MarginBottom>
-              </div>
-              <Line style={{ marginBottom: 20 }} />
-              <div>
                 <MarginBottom>
                   <FlexBasic>
                     <SubTitletable>Price</SubTitletable>
                     <PriceValue>$65</PriceValue>
                   </FlexBasic>
                 </MarginBottom>
+              </div>
+              <Line style={{ marginBottom: 20 }} />
+              <div>
                 <MarginBottom>
                   <FlexBasic>
                     <SubTitletable>Max cost</SubTitletable>
