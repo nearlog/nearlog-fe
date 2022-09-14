@@ -1,4 +1,6 @@
 import { Col, Image, Row } from "antd";
+import { useContext } from "react";
+import { NearLogContextApi } from "../../AppContext";
 import IconsComp from "../../components/BgIcon";
 import { AppButton } from "../../components/Button";
 import {
@@ -19,6 +21,7 @@ import InputComp from "./InputComp";
 import TradeTables from "./TradeTables";
 
 const TradesView = () => {
+  const { account, signIn } = useContext(NearLogContextApi);
   return (
     <div
       style={{
@@ -119,12 +122,18 @@ const TradesView = () => {
                     <PriceValue>$100</PriceValue>
                   </FlexBasic>
                 </MarginBottom>
-                <MarginBottom style={{ marginBottom: 30 }}>
-                  <AppButton style={{ width: "100%" }}>
+                {!account?.isLoggedIn ? (
+                  <MarginBottom style={{ marginBottom: 30 }}>
+                    {/* <AppButton style={{ width: "100%" }}>
                     {" "}
                     Connect wallet
-                  </AppButton>
-                </MarginBottom>
+                  </AppButton> */}
+
+                    <AppButton onClick={signIn} style={{ width: "100%" }}>
+                      Connect wallet
+                    </AppButton>
+                  </MarginBottom>
+                ) : null}
               </div>
               <Line style={{ marginBottom: 20 }} />
               <div>
