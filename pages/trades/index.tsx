@@ -1,4 +1,4 @@
-import { Col, Image, Input, Row } from "antd";
+import { Col, Image, Row } from "antd";
 import IconsComp from "../../components/BgIcon";
 import { AppButton } from "../../components/Button";
 import {
@@ -28,8 +28,8 @@ const TradesView = () => {
       }}
     >
       <AppContainer style={{ margin: "75px 0" }}>
-        <Row gutter={16}>
-          <Col span={14}>
+        <Row gutter={[16, { xs: 8, sm: 16, md: 24, lg: 24 }]}>
+          <Col xs={24} sm={24} md={24} lg={14} xl={14} xxl={14}>
             <div style={{ marginBottom: 20 }}>
               <span style={{ display: "flex", gap: 10, alignItems: "center" }}>
                 <IconsComp />{" "}
@@ -75,7 +75,7 @@ const TradesView = () => {
               </BgMutual>
             </div>
           </Col>
-          <Col span={10}>
+          <Col xs={24} sm={24} md={24} lg={10} xl={10} xxl={10}>
             <BgMutual
               style={{
                 width: "100%",

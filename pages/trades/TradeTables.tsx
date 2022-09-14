@@ -39,7 +39,13 @@ const TradeTables = () => {
     !!renderData && (
       <TableWrapper>
         <div className="top-btn-list" style={{ marginBottom: 30 }}>
-          <FlexBasic style={{ justifyContent: "space-between", gap: 30 }}>
+          <FlexBasic
+            style={{
+              justifyContent: "space-between",
+              gap: 30,
+              overflowX: "auto",
+            }}
+          >
             <TopBtnList>
               <BtnLead list={mockListBuy} />
             </TopBtnList>
