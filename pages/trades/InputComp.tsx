@@ -19,7 +19,7 @@ const InputComp = () => {
           height: 40,
           borderRadius: 20,
           flex: 1,
-          paddingRight: 38,
+          paddingRight: 48,
           textAlign: "right",
           fontWeight: 500,
         }}
@@ -28,7 +28,7 @@ const InputComp = () => {
         style={{
           color: appColors.colorGray,
           position: "absolute",
-          right: 7,
+          right: 15,
           height: 40,
           fontSize: 12,
           top: 0,

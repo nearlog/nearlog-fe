@@ -81,7 +81,7 @@ const renderData: DataType[] = [
     volatility: "134.39%",
     price: {
       number: "$0.85",
-      ticked: true,
+      ticked: false,
     },
   },
   {
@@ -111,7 +111,7 @@ const renderData: DataType[] = [
     volatility: "118.20%",
     price: {
       number: "$0.65",
-      ticked: false,
+      ticked: true,
     },
   },
   {
@@ -161,7 +161,13 @@ const mockColumn: ColumnsType<DataType> = [
       const urlIcon = item?.ticked ? "/checked.svg" : "/plus.svg";
       return (
         <div>
-          <AppButton style={{ ...stylePlus }}>
+          <AppButton
+            style={
+              item?.ticked
+                ? { backgroundColor: appColors.activeColorGreen }
+                : { ...stylePlus }
+            }
+          >
             {item?.number}
             <span className="icon">
               <Image

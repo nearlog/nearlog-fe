@@ -107,19 +107,19 @@ const TradesView = () => {
                 <MarginBottom>
                   <FlexBasic>
                     <SubTitletable>Price</SubTitletable>
-                    <PriceValue>$85</PriceValue>
+                    <PriceValue>$65</PriceValue>
                   </FlexBasic>
                 </MarginBottom>
                 <MarginBottom>
                   <FlexBasic>
                     <SubTitletable>Max cost</SubTitletable>
-                    <PriceValue>$85</PriceValue>
+                    <PriceValue>$65</PriceValue>
                   </FlexBasic>
                 </MarginBottom>
                 <MarginBottom style={{ marginBottom: 30 }}>
                   <FlexBasic>
                     <SubTitletable>Balance</SubTitletable>
-                    <PriceValue>$100</PriceValue>
+                    <PriceValue>$205.00 USN</PriceValue>
                   </FlexBasic>
                 </MarginBottom>
                 {!account?.isLoggedIn ? (
@@ -141,7 +141,7 @@ const TradesView = () => {
                   <FlexBasic>
                     <SubTitletable> Expected profit and loss</SubTitletable>
                     <SubTitletable style={{ color: appColors.sosColorRed }}>
-                      -85.00
+                      -65.00
                     </SubTitletable>
                   </FlexBasic>
                 </MarginBottom>
@@ -169,7 +169,7 @@ const TradesView = () => {
                 <MarginBottom style={{ marginBottom: 10 }}>
                   <FlexBasic>
                     <SubTitletable>Max loss</SubTitletable>
-                    <SubTitletable>$-85.00</SubTitletable>
+                    <SubTitletable>$-65.00</SubTitletable>
                   </FlexBasic>
                 </MarginBottom>
               </div>
