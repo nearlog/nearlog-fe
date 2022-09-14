@@ -4,9 +4,11 @@ import React, { useContext } from "react";
 import portfolio_styles from "../styles/Portfolio.module.css";
 import common_styles from "../styles/Common.module.css";
 import { NearLogContextApi } from "../AppContext";
+import { useRouter } from "next/router";
 
 const Portfolio: NextPage = () => {
   const { signIn, account } = useContext(NearLogContextApi);
+  const router = useRouter();
   return (
     <div className={`${common_styles.space_top} ${common_styles.bg_main}`}>
       <div
@@ -33,7 +35,10 @@ const Portfolio: NextPage = () => {
               <h3>Open Positions</h3>
               <p>You have no open positions</p>
             </div>
-            <button className={`${common_styles.btn_custom}`}>
+            <button
+              onClick={() => router.push("/trades")}
+              className={`${common_styles.btn_custom}`}
+            >
               Start trading{" "}
               <Image
                 src="/images/arrow-right.png"

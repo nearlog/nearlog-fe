@@ -8,14 +8,14 @@ export const navLinks = [
     name: "Trade",
     path: "/trades",
   },
-  // {
-  //   name: "Vaults",
-  //   path: "/vaults",
-  // },
-  // {
-  //   name: "Rewards",
-  //   path: "/rewards",
-  // },
+  {
+    name: "Vaults",
+    path: "/vaults",
+  },
+  {
+    name: "Rewards",
+    path: "/rewards",
+  },
 ];
 
 export const appColors = {
