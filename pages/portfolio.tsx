@@ -1,10 +1,18 @@
 import type { NextPage } from "next";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import portfolio_styles from "../styles/Portfolio.module.css";
 import common_styles from "../styles/Common.module.css";
+import { MAIN_CONTRACT_ID } from "../utils/connect/contract";
 
 const Portfolio: NextPage = () => {
+  const login = () => {
+    const wallet = localStorage.getItem("wallet") || "";
+    wallet?.requestSignIn(MAIN_CONTRACT_ID, "Rust Counter Example");
+  };
+  useEffect(() => {
+    console.log("local", localStorage.getItem("wallet"));
+  }, []);
   return (
     <div className={`${common_styles.space_top} ${common_styles.bg_main}`}>
       <div
@@ -19,7 +27,7 @@ const Portfolio: NextPage = () => {
             alt="Logo Nearlend Dao"
           />
           <h3>Welcome to Nearlog</h3>
-          <button className={`${common_styles.btn_custom}`}>
+          <button onClick={login} className={`${common_styles.btn_custom}`}>
             Connect wallet
           </button>
         </div>

@@ -1,0 +1,45 @@
+export const MAX_HEALTH_FACTOR_PERCENT = `${9999}%`;
+export const LAST_DECIMAL_REPLACE = 9;
+export const FORMAT_CASH_DECIMAL = 13;
+export const MINIMUM_DOLLAR_IS_ALLOW = 0.8;
+
+export const SUPPORTED_TOKENS = [];
+export const SUPPORTED_NFT = [];
+
+export const QUERY_KEY = {
+  GET_FORMAT_TOKEN: "GET_FORMAT_TOKEN",
+  GET_TOKEN_PRICE_WITH_NAME: "GET_TOKEN_PRICE_WITH_NAME",
+};
+
+export const LL = "YYYY-MM-DD";
+export const LLL = "D MMM YYYY";
+export const LLLL = "D MMMM YYYY";
+
+export const ROUTE_COLLECTION = {
+  LANDING: "/",
+  APP: "/app",
+  MARKET_PLACE: "/marketplace",
+  VAULTS: "/vaults",
+  BALANCE: "/balance",
+  LIQUIDITY: "/liquidity",
+  AUCTION_HOUSE: "/auction-house",
+  WHITE_PAPER: "/white-paper",
+  PICKDECK: "/pitch-deck",
+  LANGBIANG_CLUB: "/lang-biang-club",
+  VIEW_ACCOUNT: "/asset",
+};
+
+export const pathCollection = [
+  ROUTE_COLLECTION.APP,
+  ROUTE_COLLECTION.VAULTS,
+  ROUTE_COLLECTION.BALANCE,
+  ROUTE_COLLECTION.PICKDECK,
+  ROUTE_COLLECTION.LIQUIDITY,
+  ROUTE_COLLECTION.WHITE_PAPER,
+  ROUTE_COLLECTION.MARKET_PLACE,
+  ROUTE_COLLECTION.AUCTION_HOUSE,
+  ROUTE_COLLECTION.LANGBIANG_CLUB,
+  ROUTE_COLLECTION.VIEW_ACCOUNT,
+];
+
+export const exceptHeaderPath = [ROUTE_COLLECTION.LANGBIANG_CLUB];

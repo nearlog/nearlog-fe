@@ -16,6 +16,11 @@
     "incremental": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "utils/connect/contract.js"
+  ],
   "exclude": ["node_modules"]
 }
