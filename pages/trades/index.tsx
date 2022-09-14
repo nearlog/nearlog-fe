@@ -30,6 +30,8 @@ const TradesView = () => {
     number: Number(buyInfos?.number?.replace("$", "")),
   };
 
+  const roundCurrency = sliceCurrency?.number * 100 || 0;
+
   const handleGetRowInfo = (infos: any) => {
     setBuyInfos(infos);
   };
@@ -116,9 +118,7 @@ const TradesView = () => {
                 <MarginBottom>
                   <FlexBasic>
                     <SubTitletable>Price</SubTitletable>
-                    <PriceValue>{`$${
-                      Number(sliceCurrency?.number) * 100
-                    }.00`}</PriceValue>
+                    <PriceValue>{`$${roundCurrency}.00`}</PriceValue>
                   </FlexBasic>
                 </MarginBottom>
               </div>
@@ -127,9 +127,7 @@ const TradesView = () => {
                 <MarginBottom>
                   <FlexBasic>
                     <SubTitletable>Max cost</SubTitletable>
-                    <PriceValue>{`$${
-                      Number(sliceCurrency?.number) * 100
-                    }.00`}</PriceValue>
+                    <PriceValue>{`$${roundCurrency}.00`}</PriceValue>
                   </FlexBasic>
                 </MarginBottom>
                 <MarginBottom style={{ marginBottom: 30 }}>
@@ -178,7 +176,7 @@ const TradesView = () => {
                 <MarginBottom style={{ marginBottom: 10 }}>
                   <FlexBasic>
                     <SubTitletable>Max loss</SubTitletable>
-                    <SubTitletable>{`$-${sliceCurrency?.number}.00`}</SubTitletable>
+                    <SubTitletable>{`$-${roundCurrency}.00`}</SubTitletable>
                   </FlexBasic>
                 </MarginBottom>
               </div>
