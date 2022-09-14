@@ -21,7 +21,7 @@ const AppHeader = () => {
   const width = 996;
   const [open, setOpen] = useState(false);
 
-  const isAppendMobileMenu = width >= responsiveMenu;
+  const isAppendMobileMenu = width <= responsiveMenu;
   const isHomePage = pathname === "/";
 
   const drawMobileMenu = useCallback(() => {
