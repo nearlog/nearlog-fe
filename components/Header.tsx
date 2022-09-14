@@ -81,7 +81,7 @@ const AppHeader = () => {
                 <FooterLinks />
               </AlignFooterMenuMobile>
             </AlignMenuMobile>
-            <ConnectWalletButton style={{ width: "100%", marginTop: 30 }} />
+            <ConnectWalletButton style={{ width: "100%", marginTop: 50 }} />
           </DrawOverwrite>
         </>
       ) : (
@@ -136,6 +136,7 @@ const AlignMenuMobile = styled.ul`
   li {
     font-size: 22px;
     cursor: pointer;
+    color: ${appColors.defaultColorWhite};
     &:not(:last-child) {
       margin-bottom: 20px;
     }
